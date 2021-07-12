@@ -11,21 +11,24 @@
   <body>
     <div class="container">
       <h1>Конвертация валют для US STUDIO</h1>
+      <!-- форма с вызовом функции отправки письма через почтовый клиент пользователя -->
       <form name="myform" action="javascript:sendMail();" method="post" enctype="text/plain">
         <div class="form-group">
+          <!-- поле для ввода суммы рублей, поле числового формата, вызывает функцию конвертации для каждого введенного символа -->
           <label class="label-title">
             <input
               class="form-control"
               placeholder="&nbsp;"
               oninput="convert()"
               type="number"
-              step="0.2"
               name="ruble"
               id="ruble"
-              required=""
+              required
             />
             <span>Сумма, руб</span>
           </label>
+          <!-- поле для выбора валюты конвертации из списка, вызывает функцию конвертации после выбора, 
+            курс валюты добавлен как дополнительные данные  -->
           <label class="label-title">
             <select class="form-select" name="currency" id="valuta" size="1" onchange="convert()">
               <option selected="" hidden="">Выберите валюту</option>
@@ -39,6 +42,7 @@
             </select>
             <span>Валюта для конвертации</span>
           </label>
+          <!-- заблокированное поле результата конвертации -->
           <label class="label-title">
             <input
               class="form-control"
@@ -47,18 +51,20 @@
               name="result"
               id="result"
               placeholder="&nbsp;"
-              disabled=""
+              disabled
             />
             <span>После конвертации</span>
           </label>
         </div>
+
         <div class="form-group">
+          <!-- поле для ввода e-mail. валидация e-mail  происходит автоматически в браузере, потому что прописан тип данных e-mail-->
           <label class="label-title">
-            <input class="form-control" type="email" name="email" placeholder="&nbsp;" id="email" required="" />
+            <input class="form-control" type="email" name="email" placeholder="&nbsp;" id="email" required />
             <span>E-Mail</span>
           </label>
-          <!--  валидация e-mail  происходит автоматически в браузере-->
 
+          <!-- кнопка отправки письма -->
           <input type="submit" class="label-title btn btn-primary" value="Записаться на обмен валюты" />
         </div>
       </form>
